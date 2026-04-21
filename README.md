@@ -44,6 +44,15 @@ The project uses a **Star Schema Model** for optimized analytics performance.
 
 ---
 
+<img width="1132" height="678" alt="Screenshot 2026-04-21 202443" src="https://github.com/user-attachments/assets/10194418-b3da-42d2-b177-f84cc5d78dee" />
+
+<img width="1097" height="642" alt="Screenshot 2026-04-21 202533" src="https://github.com/user-attachments/assets/39dc3632-b7ed-4839-bab6-e64fde1a5596" />
+
+<img width="1087" height="674" alt="Screenshot 2026-04-21 202634" src="https://github.com/user-attachments/assets/ddfafa46-0eb3-4aa9-b734-9e6e7cacab4c" />
+
+<img width="1101" height="634" alt="Screenshot 2026-04-21 202705" src="https://github.com/user-attachments/assets/f959815d-0268-4354-80f1-c1bd5cc4ccf2" />
+
+
 # 📊 Key DAX Measures
 
 ```DAX
@@ -115,11 +124,8 @@ VAR PrevMonth =
 RETURN
 DIVIDE(CurrentMonth - PrevMonth, PrevMonth) * 100
 
-Screenshot
-<img width="1132" height="678" alt="Screenshot 2026-04-21 202443" src="https://github.com/user-attachments/assets/49a8517a-a48a-4031-808a-c45e7c537646" />
-<img width="1097" height="642" alt="Screenshot 2026-04-21 202533" src="https://github.com/user-attachments/assets/28293d2e-65a2-4dd1-84b9-b536f292f9a1" />
-<img width="1087" height="674" alt="Screenshot 2026-04-21 202634" src="https://github.com/user-attachments/assets/274aed48-3007-4aac-be91-21fd5f961f09" />
-<img width="1101" height="634" alt="Screenshot 2026-04-21 202705" src="https://github.com/user-attachments/assets/e5c7cf3d-8d00-49eb-b1b3-4f097f1c0686" />
+
+
 
 
 
