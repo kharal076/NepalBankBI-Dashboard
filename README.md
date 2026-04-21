@@ -114,7 +114,8 @@ VAR PrevMonth =
     )
 RETURN
 DIVIDE(CurrentMonth - PrevMonth, PrevMonth) * 100
-screenshot
+
+Screenshot
 <img width="1132" height="678" alt="Screenshot 2026-04-21 202443" src="https://github.com/user-attachments/assets/49a8517a-a48a-4031-808a-c45e7c537646" />
 <img width="1097" height="642" alt="Screenshot 2026-04-21 202533" src="https://github.com/user-attachments/assets/28293d2e-65a2-4dd1-84b9-b536f292f9a1" />
 <img width="1087" height="674" alt="Screenshot 2026-04-21 202634" src="https://github.com/user-attachments/assets/274aed48-3007-4aac-be91-21fd5f961f09" />
