@@ -1,9 +1,52 @@
-Section 1 — Project Overview
-"Built an end-to-end Banking Business Intelligence system simulating real banking operations in Nepal. The project covers data generation, ETL transformation using Power Query, star-schema data modeling, DAX measure development, and interactive dashboard creation in Power BI."
-Section 2 — Data Model Diagram
- 
+# 🏦 NepalBank Business Intelligence Dashboard
 
-DAX Measures
+## 📌 Project Overview
+
+Built an **end-to-end Banking Business Intelligence solution** simulating real banking operations in Nepal.  
+This project demonstrates complete BI workflow including:
+
+✅ Synthetic Banking Data Generation  
+✅ ETL Transformation using Power Query  
+✅ Star Schema Data Modeling  
+✅ Advanced DAX Measure Creation  
+✅ Interactive Dashboard Development in Power BI  
+✅ Business Insight Extraction for Decision Making  
+
+This dashboard helps management monitor transactions, customer behavior, loan performance, and branch efficiency.
+
+---
+
+# 🚀 Tech Stack
+
+| Tool | Usage |
+|------|-------|
+| Power BI | Dashboard & Reporting |
+| Power Query | ETL / Data Cleaning |
+| DAX | KPI Measures |
+| SQL | Data Preparation |
+| Excel / CSV | Source Data |
+| Star Schema | Data Modeling |
+
+---
+
+# 🧩 Data Model
+
+The project uses a **Star Schema Model** for optimized analytics performance.
+
+### Fact Tables:
+- Transactions
+- Loans
+
+### Dimension Tables:
+- Customers
+- Branches
+- Calendar
+
+---
+
+# 📊 Key DAX Measures
+
+```DAX
 -- Total Transaction Amount
 Total Amount = SUM(Transactions[Amount_NPR])
 
@@ -13,65 +56,64 @@ Total Transactions = COUNT(Transactions[TransactionID])
 -- Average Transaction Value
 Avg Transaction = AVERAGE(Transactions[Amount_NPR])
 
--- Total Deposits Only
+-- Total Deposits
 Total Deposits =
-CALCULATE(SUM(Transactions[Amount_NPR]),
-Transactions[TransactionType] = "Deposit")
+CALCULATE(
+    SUM(Transactions[Amount_NPR]),
+    Transactions[TransactionType] = "Deposit"
+)
 
--- Total Withdrawals Only
+-- Total Withdrawals
 Total Withdrawals =
-CALCULATE(SUM(Transactions[Amount_NPR]),
-Transactions[TransactionType] = "Withdrawal")
+CALCULATE(
+    SUM(Transactions[Amount_NPR]),
+    Transactions[TransactionType] = "Withdrawal"
+)
 
--- Completed Transaction Rate (%)
+-- Completion Rate
 Completion Rate =
 DIVIDE(
-CALCULATE(COUNT(Transactions[TransactionID]),
-Transactions[Status] = "Completed"),
-COUNT(Transactions[TransactionID])
+    CALCULATE(
+        COUNT(Transactions[TransactionID]),
+        Transactions[Status] = "Completed"
+    ),
+    COUNT(Transactions[TransactionID])
 ) * 100
 
--- Total Loan Amount Disbursed
+-- Total Loans
 Total Loans = SUM(Loans[LoanAmount_NPR])
 
--- Active Loan Count
+-- Active Loans
 Active Loans =
-CALCULATE(COUNT(Loans[LoanID]),
-Loans[Status] = "Active")
+CALCULATE(
+    COUNT(Loans[LoanID]),
+    Loans[Status] = "Active"
+)
 
--- Loan Default Rate (%)
+-- Default Rate
 Default Rate =
 DIVIDE(
-CALCULATE(COUNT(Loans[LoanID]),
-Loans[Status] = "Defaulted"),
-COUNT(Loans[LoanID])
+    CALCULATE(
+        COUNT(Loans[LoanID]),
+        Loans[Status] = "Defaulted"
+    ),
+    COUNT(Loans[LoanID])
 ) * 100
 
 -- Total Customers
-Total Customers = DISTINCTCOUNT(Transactions[CustomerID])
+Total Customers =
+DISTINCTCOUNT(Transactions[CustomerID])
 
--- MoM Growth (Month-over-Month)
+-- Month-over-Month Growth
 MoM Growth =
 VAR CurrentMonth = [Total Amount]
-VAR PrevMonth = CALCULATE([Total Amount],
-DATEADD(Transactions[TransactionDate], -1, MONTH))
-RETURN DIVIDE(CurrentMonth - PrevMonth, PrevMonth) * 100
-
-
-Section 4 — Business Insights Found
-4.1 Executive Summary 
-•	Birgunj leads branch volume... 
-•	Digital channels exceed 51%...
- 4.2 Customer Analytics 
-•	76.4% customers are Basic segment... 
-•	Fixed Deposit adoption is lowest... 
-4.3 Loan Portfolio 
-•	Default rate at 10.75% — above safe threshold...
-•	Business loans dominate at NPR 200M+... 
-4.4 Branch Performance 
-•	92.13% completion rate — 3% below target... 
-•	Branch maturity correlates with volume...
-
+VAR PrevMonth =
+    CALCULATE(
+        [Total Amount],
+        DATEADD(Transactions[TransactionDate], -1, MONTH)
+    )
+RETURN
+DIVIDE(CurrentMonth - PrevMonth, PrevMonth) * 100
 screenshot
 <img width="1132" height="678" alt="Screenshot 2026-04-21 202443" src="https://github.com/user-attachments/assets/49a8517a-a48a-4031-808a-c45e7c537646" />
 <img width="1097" height="642" alt="Screenshot 2026-04-21 202533" src="https://github.com/user-attachments/assets/28293d2e-65a2-4dd1-84b9-b536f292f9a1" />
